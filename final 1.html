@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexora — The Compliance Group | Asesoría regulatoria y de cumplimiento</title>
+
+<!-- SEO -->
+<meta name="description" content="Diseñamos, fortalecemos y acompañamos programas de prevención de lavado de activos y cumplimiento regulatorio para fintechs, entidades financieras y activos virtuales en Argentina, LATAM y EE. UU. Consulta inicial sin cargo.">
+<link rel="canonical" href="https://TODO-reemplazar-con-dominio-real.com.ar/">
+
+<!-- Open Graph (previews en WhatsApp / LinkedIn / Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Nexora — The Compliance Group">
+<meta property="og:title" content="Nexora — The Compliance Group | Asesoría regulatoria y de cumplimiento">
+<meta property="og:description" content="Compliance armado por quienes lo operaron. Programas de PLAFT y cumplimiento regulatorio a medida para fintechs, entidades financieras y activos virtuales.">
+<meta property="og:image" content="https://TODO-reemplazar-con-URL-de-imagen-1200x630.jpg">
+<meta property="og:url" content="https://TODO-reemplazar-con-dominio-real.com.ar/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nexora — The Compliance Group">
+<meta name="twitter:description" content="Asesoría regulatoria y de cumplimiento para fintechs, entidades financieras y activos virtuales en Argentina, LATAM y EE. UU.">
+<meta name="twitter:image" content="https://TODO-reemplazar-con-URL-de-imagen-1200x630.jpg">
+
+<!-- Favicon: sello circular, mismo motivo del expediente que usa el resto del sitio -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='27' fill='%23EDEFEC' stroke='%23A9824C' stroke-width='4'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-weight='700' font-size='28' fill='%2312172A' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Datos estructurados para búsquedas locales -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Nexora — The Compliance Group",
+  "description": "Asesoría regulatoria y de cumplimiento (PLAFT) para fintechs, entidades financieras y empresas de activos virtuales en Argentina, LATAM y Estados Unidos.",
+  "areaServed": ["Argentina", "Estados Unidos", "LATAM"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Buenos Aires",
+    "addressCountry": "AR"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Tamara Botte",
+    "jobTitle": "Abogada especializada en compliance financiero"
+  }
+}
+</script>
+<style>
+  :root{
+    --ink:#12172A;
+    --ink-soft:#2A3350;
+    --paper:#EDEFEC;
+    --card:#FFFFFF;
+    --brass:#A9824C;
+    --brass-dark:#8A6A3C;
+    --teal:#2B564E;
+    --teal-dark:#1D3B35;
+    --teal-soft:#E7EFEC;
+    --line:#D9DCD5;
+    --text:#1C2230;
+    --muted:#5B6270;
+    --radius:2px;
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Inter', -apple-system, sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--brass-dark);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+  }
+  .eyebrow::after{content:"";flex:1;height:1px;background:var(--line);}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--ink);letter-spacing:-.01em;}
+  h1{font-size:clamp(38px,6.4vw,66px);line-height:1.04;}
+  h2{font-size:clamp(26px,3.4vw,38px);line-height:1.12;}
+  h3{font-size:19px;line-height:1.3;}
+  p{color:var(--muted);}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 26px;
+    font-family:var(--sans);font-weight:600;font-size:15px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--teal);color:#fff;}
+  .btn-primary:hover{background:var(--teal-dark);box-shadow:0 8px 20px rgba(43,86,78,.28);}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:#fff;}
+  .btn-light{background:#fff;color:var(--ink);}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(237,239,236,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1120px;margin:0 auto;}
+  .brand{display:flex;flex-direction:column;line-height:1;}
+  .brand-name{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--ink);letter-spacing:.01em;}
+  .brand-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-dark);margin-top:3px;}
+  nav.links{display:flex;gap:32px;align-items:center;}
+  nav.links a{font-size:14px;font-weight:500;text-decoration:none;color:var(--ink-soft);}
+  nav.links a:hover{color:var(--brass-dark);}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+  .menu-toggle{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink);}
+
+  /* HERO */
+  .hero{padding:76px 0 90px;position:relative;overflow:hidden;}
+  .hero-content{max-width:760px;}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0 30px;}
+  .chip{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
+    padding:7px 13px;border:1px solid var(--line);border-radius:20px;
+    color:var(--ink-soft);background:#fff;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;}
+  .hero-sub{font-size:18px;max-width:600px;margin-bottom:4px;}
+  .accent{color:var(--teal);}
+  .hero-trust{
+    font-family:var(--mono);font-size:12px;letter-spacing:.02em;
+    color:var(--muted);margin-top:14px;
+  }
+
+  /* Stats strip */
+  .stats-strip{background:var(--ink);}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding:46px 0;}
+  .stat-item{border-left:2px solid var(--brass);padding-left:18px;}
+  .stat-num{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3vw,36px);color:#fff;line-height:1;}
+  .stat-label{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:#B9BDCB;margin-top:10px;line-height:1.45;}
+
+  /* SECTION generic */
+  section{padding:88px 0;}
+  .section-alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head p{margin-top:14px;font-size:16.5px;}
+
+  /* Explainer cards with details/summary */
+  .explain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .explain-card{background:#fff;border:1px solid var(--line);padding:26px 24px;border-radius:var(--radius);}
+  .explain-card h3{margin-bottom:10px;}
+  .explain-card>p{font-size:14.5px;margin-bottom:14px;}
+  details{border-top:1px solid var(--line);padding-top:12px;}
+  details summary{
+    cursor:pointer;list-style:none;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--teal);font-weight:500;
+    display:flex;align-items:center;gap:8px;
+  }
+  details summary::-webkit-details-marker{display:none;}
+  details summary::before{content:"+";font-family:var(--sans);font-size:15px;color:var(--brass);}
+  details[open] summary::before{content:"–";}
+  details .tech{font-size:13.5px;margin-top:10px;color:var(--muted);}
+
+  /* Services */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .service-card{background:var(--card);border:1px solid var(--line);padding:28px 24px;border-radius:var(--radius);display:flex;flex-direction:column;}
+  .service-num{font-family:var(--mono);font-size:11px;color:var(--brass-dark);margin-bottom:14px;}
+  .service-card h3{margin-bottom:10px;}
+  .service-card>p{font-size:14.5px;margin-bottom:16px;flex:1;}
+  .service-card ul{margin:8px 0 0;padding-left:0;list-style:none;font-size:13px;color:var(--muted);}
+  .service-card ul li{padding-left:16px;position:relative;margin-bottom:6px;}
+  .service-card ul li::before{content:"–";position:absolute;left:0;color:var(--brass);}
+
+  /* Audience */
+  .audience-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+  .audience-card{
+    background:var(--ink);color:#fff;padding:24px 18px;border-radius:var(--radius);
+    display:flex;flex-direction:column;justify-content:space-between;min-height:190px;
+  }
+  .audience-card h3{color:#fff;font-size:16.5px;margin-bottom:10px;}
+  .audience-card p{color:#B9BDCB;font-size:13px;}
+
+  /* Process */
+  .process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+  .process::before{content:"";position:absolute;top:22px;left:0;right:0;height:1px;background:var(--line);}
+  .process-step{padding:0 20px 0 0;position:relative;}
+  .process-num{
+    font-family:var(--mono);font-size:13px;color:#fff;background:var(--teal);
+    width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    margin-bottom:20px;position:relative;z-index:2;
+  }
+  .process-step h3{margin-bottom:8px;font-size:17px;}
+  .process-step p{font-size:13.5px;}
+
+  /* Founder tag */
+  .founder-tag{display:flex;align-items:center;gap:14px;margin:20px 0 22px;}
+  .founder-photo{
+    width:64px;height:64px;border-radius:50%;object-fit:cover;
+    border:2px solid var(--brass);flex-shrink:0;
+  }
+  .founder-name{font-family:var(--serif);font-weight:600;font-size:15.5px;color:var(--ink);line-height:1.2;}
+  .founder-role{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--muted);margin-top:3px;
+  }
+
+  /* Why us */
+  .why-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;}
+  .why-list{list-style:none;}
+  .why-list li{display:flex;gap:14px;padding:16px 0;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft);}
+  .why-list li:last-child{border-bottom:1px solid var(--line);}
+  .why-list li::before{content:"✓";font-family:var(--mono);color:var(--teal);font-weight:700;flex-shrink:0;}
+  .disclaimer{
+    margin-top:24px;background:var(--teal-soft);border-left:3px solid var(--teal);
+    padding:16px 18px;font-size:13.5px;color:var(--ink-soft);border-radius:var(--radius);
+  }
+
+  /* FAQ */
+  .faq-list{max-width:760px;}
+  .faq-item{border-top:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-item summary{
+    cursor:pointer;list-style:none;padding:22px 4px;
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--serif);font-size:18px;color:var(--ink);font-weight:500;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:"+";font-family:var(--sans);font-size:22px;color:var(--brass);flex-shrink:0;margin-left:16px;}
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item .a{padding:0 4px 24px;font-size:15px;max-width:640px;}
+
+  /* Final CTA */
+  .cta-band{
+    background:var(--ink);color:#fff;border-radius:4px;
+    padding:64px 56px;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;
+  }
+  .cta-band h2{color:#fff;max-width:480px;}
+  .cta-band p{color:#B9BDCB;margin-top:12px;max-width:440px;}
+  .cta-actions{display:flex;flex-direction:column;gap:12px;min-width:240px;}
+  .cta-actions .btn{justify-content:center;}
+
+  /* Footer */
+  footer{padding:56px 0 40px;border-top:1px solid var(--line);}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+  .footer-grid h4{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--brass-dark);margin-bottom:14px;}
+  .footer-grid a, .footer-grid p{display:block;font-size:13.5px;color:var(--muted);text-decoration:none;margin-bottom:9px;}
+  .footer-grid a:hover{color:var(--teal);}
+  .footer-bottom{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:24px;flex-wrap:wrap;gap:10px;}
+
+  /* Floating WhatsApp */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;z-index:60;
+    display:flex;align-items:center;gap:10px;
+    background:var(--teal);color:#fff;
+    padding:14px 20px 14px 16px;border-radius:40px;
+    text-decoration:none;font-weight:600;font-size:14px;
+    box-shadow:0 14px 30px -8px rgba(43,86,78,.55);
+    transition:transform .15s ease, background-color .15s ease;
+  }
+  .wa-float:hover{transform:translateY(-2px) scale(1.02);background:var(--teal-dark);}
+  .wa-float svg{width:20px;height:20px;flex-shrink:0;}
+
+  @media(max-width:920px){
+    .explain-grid, .services-grid{grid-template-columns:1fr 1fr;}
+    .audience-grid{grid-template-columns:1fr 1fr;}
+    .process{grid-template-columns:1fr 1fr;row-gap:36px;}
+    .process::before{display:none;}
+    .why-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    nav.links{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;gap:0;background:var(--paper);
+      border-bottom:1px solid var(--line);padding:8px 28px 18px;
+    }
+    nav.links.open{display:flex;}
+    nav.links a{padding:12px 0;border-top:1px solid var(--line);}
+    .menu-toggle{display:block;}
+    header.nav{position:sticky;}
+    .nav-inner{position:relative;}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:600px){
+    .explain-grid,.services-grid,.audience-grid,.process,.footer-grid{grid-template-columns:1fr;}
+    .stats-grid{grid-template-columns:1fr;gap:22px;}
+    .cta-band{padding:44px 26px;flex-direction:column;align-items:flex-start;}
+    .wa-float span{display:none;}
+    .wa-float{padding:14px;border-radius:50%;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <span class="brand-name">Nexora</span>
+      <span class="brand-tag">The Compliance Group</span>
+    </div>
+    <nav class="links" id="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#para-quien">Para quién</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#preguntas">Preguntas frecuentes</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" id="wa-nav" href="#" target="_blank" rel="noopener">Hablemos por WhatsApp</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow">NEXORA — ASESORÍA REGULATORIA Y DE CUMPLIMIENTO</div>
+      <h1>Que tu negocio cumpla no debería frenar <span class="accent">tu crecimiento</span>.</h1>
+      <p class="hero-sub" style="margin-top:18px;">
+        Diseñamos y acompañamos programas de prevención de lavado de activos y cumplimiento
+        regulatorio para fintechs, entidades financieras y empresas de activos virtuales — con
+        el criterio de quien ya operó dentro de una institución regulada.
+      </p>
+      <div class="chips">
+        <span class="chip">Fintechs y PSP</span>
+        <span class="chip">Entidades financieras</span>
+        <span class="chip">Exchanges y activos virtuales</span>
+        <span class="chip">Mutuales y cooperativas</span>
+        <span class="chip">Expansión a EE. UU.</span>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" id="wa-hero" href="#" target="_blank" rel="noopener">Coordiná una consulta sin cargo</a>
+        <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+      </div>
+      <p class="hero-trust">Sin cargo · Respuesta en 24 hs hábiles</p>
+    </div>
+    </div>
+  </section>
+
+  <!-- MÉTRICAS -->
+  <section class="stats-strip">
+    <div class="wrap stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">+7.000</div>
+        <div class="stat-label">Agencias acompañadas en procesos de onboarding KYB y monitoreo EDD a lo largo de su ciclo de vida</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">+10 años</div>
+        <div class="stat-label">De trayectoria en compliance financiero, dentro y fuera de instituciones reguladas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50 estados</div>
+        <div class="stat-label">De Estados Unidos con experiencia regulatoria directa, incluyendo licenciamiento multiestatal</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5 países</div>
+        <div class="stat-label">De LATAM con casos activos de expansión regional y entrada a nuevos mercados</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLICATIVO -->
+  <section class="section-alt" id="por-que-importa">
+    <div class="wrap">
+      <div class="eyebrow">EXPEDIENTE 01 — POR QUÉ IMPORTA</div>
+      <div class="section-head">
+        <h2>Compliance, explicado sin vueltas</h2>
+        <p>Tocá "ver detalle técnico" en cada tarjeta si ya conocés el tema y querés precisión normativa.</p>
+      </div>
+      <div class="explain-grid">
+        <div class="explain-card">
+          <h3>¿Qué es un programa de cumplimiento?</h3>
+          <p>Es el conjunto de reglas y controles internos que evitan que tu empresa sea usada, sin saberlo, para lavar dinero o financiar actividades ilícitas.</p>
+          <details>
+            <summary>Ver detalle técnico</summary>
+            <p class="tech">Incluye política de prevención de LA/FT, evaluación de riesgo, procedimientos de KYC/EDD, matriz de riesgo, capacitación y reporte de operaciones sospechosas conforme a la normativa de la UIF.</p>
+          </details>
+        </div>
+        <div class="explain-card">
+          <h3>¿Quién tiene que cumplir con esto?</h3>
+          <p>Si tu empresa mueve o gestiona dinero de terceros —fintech, billetera, exchange, cooperativa, entidad financiera— probablemente sos Sujeto Obligado ante la UIF.</p>
+          <details>
+            <summary>Ver detalle técnico</summary>
+            <p class="tech">Aplican resoluciones UIF según actividad (fintech, PSP, activos virtuales, mutuales y cooperativas), Comunicaciones del BCRA y, según el caso, normativa de la CNV.</p>
+          </details>
+        </div>
+        <div class="explain-card">
+          <h3>¿Qué pasa si no cumplo?</h3>
+          <p>Podés enfrentar sanciones económicas, trabas operativas y freno en licencias — y si buscás crecer o levantar inversión, pérdida de confianza de bancos e inversores.</p>
+          <details>
+            <summary>Ver detalle técnico</summary>
+            <p class="tech">Multas UIF, observaciones en exámenes regulatorios y riesgo de desbancarización (de-risking) por parte de bancos corresponsales.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="wrap">
+      <div class="eyebrow">EXPEDIENTE 02 — SERVICIOS</div>
+      <div class="section-head">
+        <h2>Un programa de cumplimiento a medida, no una plantilla</h2>
+        <p>Cada servicio se adapta al tamaño, el riesgo y la etapa real de tu empresa.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-num">01</div>
+          <h3>Diseño de Programas de Cumplimiento</h3>
+          <p>Armamos las políticas y controles que tu empresa necesita para operar de forma segura y cumplir con la normativa vigente.</p>
+          <ul>
+            <li>Política de prevención de LA/FT</li>
+            <li>Matriz de riesgo</li>
+            <li>Manual de procedimientos y KYC/EDD</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-num">02</div>
+          <h3>Licencias y Asuntos Regulatorios</h3>
+          <p>Te acompañamos en el proceso de registro y habilitación ante los organismos que correspondan a tu actividad.</p>
+          <ul>
+            <li>Registro ante UIF</li>
+            <li>Habilitaciones BCRA / PSAV / CNV</li>
+            <li>Licencias MSB en Estados Unidos</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-num">03</div>
+          <h3>Evaluación de Riesgos y Brechas</h3>
+          <p>Revisamos lo que ya tenés armado y te decimos, con claridad, qué falta y qué te expone hoy.</p>
+          <ul>
+            <li>Gap analysis</li>
+            <li>Risk assessment</li>
+            <li>Plan de acción priorizado</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-num">04</div>
+          <h3>Oficina de Cumplimiento Asistida</h3>
+          <p>Sumamos capacidad y criterio a tu Oficial de Cumplimiento designado, sin reemplazarlo — como exige la normativa argentina.</p>
+          <ul>
+            <li>Soporte mensual y segunda opinión técnica</li>
+            <li>Revisión de reportes</li>
+            <li>Preparación para inspecciones</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-num">05</div>
+          <h3>Capacitación de Equipos</h3>
+          <p>Formamos a tu equipo para que la prevención de lavado de dinero no dependa de una sola persona.</p>
+          <ul>
+            <li>Talleres a medida por área</li>
+            <li>Casos prácticos reales</li>
+            <li>Certificación interna</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-num">06</div>
+          <h3>Expansión Regional y a EE. UU.</h3>
+          <p>Si tu próximo paso es Estados Unidos u otro país de la región, te ayudamos a entender qué exige ese mercado antes de entrar.</p>
+          <ul>
+            <li>Market entry advisory</li>
+            <li>Licenciamiento multiestatal</li>
+            <li>Preparación para bancos corresponsales</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUIEN -->
+  <section class="section-alt" id="para-quien">
+    <div class="wrap">
+      <div class="eyebrow">EXPEDIENTE 03 — A QUIÉN ACOMPAÑAMOS</div>
+      <div class="section-head">
+        <h2>¿Es esto para tu empresa?</h2>
+        <p>Si te reconocés en alguno de estos casos, probablemente sí.</p>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <h3>Fintechs y PSP</h3>
+          <p>Estás lanzando un producto de pagos o billetera y necesitás un programa de cumplimiento antes de escalar.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Entidades financieras</h3>
+          <p>Ya tenés compliance instalado, pero necesitás reforzarlo para un examen o una auditoría próxima.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Exchanges y activos virtuales</h3>
+          <p>Operás con criptoactivos y la normativa te exige un programa PLAFT específico como PSAV.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Mutuales y cooperativas</h3>
+          <p>Sos una entidad del sector solidario que necesita fortalecer su función de cumplimiento ante INAES y UIF.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Empresas en expansión</h3>
+          <p>Sos una empresa de la región que planea operar en Estados Unidos y necesita entender las reglas antes de entrar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section id="proceso">
+    <div class="wrap">
+      <div class="eyebrow">EXPEDIENTE 04 — CÓMO TRABAJAMOS</div>
+      <div class="section-head">
+        <h2>Cuatro pasos, sin sorpresas en el camino</h2>
+      </div>
+      <div class="process">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <h3>Diagnóstico</h3>
+          <p>Relevamos tu operación y tu perfil de riesgo real, no el que dice el manual genérico.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <h3>Diseño</h3>
+          <p>Armamos el programa, las políticas y los controles a la medida de tu negocio.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <h3>Implementación</h3>
+          <p>Lo ponemos en marcha con tu equipo — no lo dejamos en un documento que nadie lee.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <h3>Acompañamiento</h3>
+          <p>Seguimos al lado tuyo con revisiones periódicas y frente a cada examen regulatorio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE NEXORA -->
+  <section class="section-alt" id="nosotros">
+    <div class="wrap why-grid">
+      <div>
+        <div class="eyebrow">EXPEDIENTE 05 — POR QUÉ NEXORA</div>
+        <div class="founder-tag">
+          <img src="tamara-botte.jpg" alt="Tamara Botte, fundadora de Nexora" class="founder-photo">
+          <div>
+            <div class="founder-name">Tamara Botte</div>
+            <div class="founder-role">Fundadora — Abogada · CAMS · IFCA</div>
+          </div>
+        </div>
+        <h2>Compliance armado por quienes lo operaron</h2>
+        <p style="margin-top:16px;font-size:15.5px;">
+          Nexora está liderada por Tamara Botte, abogada con trayectoria en compliance financiero,
+          docencia universitaria en UBA y experiencia operando —no solo asesorando— dentro de
+          instituciones reguladas.
+        </p>
+        <div class="disclaimer">
+          Trabajamos junto al Oficial de Cumplimiento que tu empresa designe. No reemplazamos ese
+          rol: la normativa argentina exige que sea interno. Lo que hacemos es fortalecerlo.
+        </div>
+      </div>
+      <ul class="why-list">
+        <li>Experiencia liderando compliance dentro de una institución financiera con licencia en Estados Unidos, incluyendo programas multiestatales.</li>
+        <li>Matrícula CPACF (abogada) y certificaciones internacionales CAMS e IFCA.</li>
+        <li>Docente universitaria en UBA, Derecho Civil — una mirada que combina norma, riesgo y responsabilidad.</li>
+        <li>Trabajo articulado con estudios jurídicos y consultoras aliadas para dar una respuesta integral cuando el caso lo requiere.</li>
+        <li>Foco en explicar cada decisión regulatoria en términos que el negocio entiende, no solo el área legal.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="preguntas">
+    <div class="wrap">
+      <div class="eyebrow">EXPEDIENTE 06 — PREGUNTAS FRECUENTES</div>
+      <div class="section-head">
+        <h2>Antes de escribirnos</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Necesito esto si soy una empresa chica?</summary>
+          <p class="a">Sí, si manejás dinero de terceros. El tamaño de la empresa no te exime de la obligación regulatoria — sí cambia el alcance y el costo del programa, que siempre ajustamos a tu escala real.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto tarda armar un programa de cumplimiento?</summary>
+          <p class="a">Depende del punto de partida. Un diagnóstico inicial toma entre 1 y 2 semanas; un programa completo, entre 4 y 10 semanas. Te damos un cronograma concreto después de la consulta inicial.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Trabajan con empresas fuera de Argentina?</summary>
+          <p class="a">Sí. Además de Argentina, trabajamos casos de expansión regional y de entrada al mercado de Estados Unidos, incluyendo licenciamiento multiestatal.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Pueden ser mi Oficial de Cumplimiento?</summary>
+          <p class="a">No — y desconfiá de quien te lo ofrezca. La normativa argentina exige que el Oficial de Cumplimiento sea un directivo interno de tu empresa. Lo que sí hacemos es asistir a esa persona con criterio técnico, revisión y acompañamiento en exámenes.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cómo es la modalidad de trabajo y los honorarios?</summary>
+          <p class="a">Trabajamos por proyecto de precio fijo o por retainer mensual, según el servicio. Te lo definimos con claridad antes de empezar, sin sorpresas en la factura.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Empecemos por una conversación, no por un contrato.</h2>
+          <p>Una consulta inicial sin cargo para entender tu situación y decirte, con franqueza, si podemos ayudarte.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-light" id="wa-cta" href="#" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+          <a class="btn btn-ghost" style="border-color:#fff;color:#fff;" id="mail-cta" href="#">Enviar un email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Nexora</h4>
+        <p style="margin-bottom:4px;">The Compliance Group</p>
+        <p>Asesoría regulatoria y de cumplimiento para empresas reguladas en Argentina, LATAM y Estados Unidos.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="#servicios">Servicios</a>
+        <a href="#para-quien">Para quién</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a id="mail-footer" href="#">info@nexoracompliance.com.ar</a>
+        <a id="wa-footer" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <p>Buenos Aires, Argentina</p>
+      </div>
+      <div>
+        <h4>Registro profesional</h4>
+        <p>Tamara Botte — Abogada</p>
+        <p>CPACF T° 115 F° 931</p>
+        <p>CAMS · IFCA</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nexora — The Compliance Group. Todos los derechos reservados.</span>
+      <span>Consulta inicial sin cargo · Respuesta en 24 hs hábiles</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" id="wa-float" href="#" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1s-.8 1-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.6.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5c1.5.8 3.3 1.3 5.2 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.7 0-3.4-.5-4.8-1.3l-.3-.2-3.1.9.9-3-.2-.3C3.5 14.7 3 13.4 3 12c0-4.9 4-9 9-9s9 4 9 9-4 9-9 9z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<script>
+  // Set these to Nexora's real contact details before publishing
+  const WHATSAPP_NUMBER = "5491161684001"; // reemplazar por el número real, formato 54 9 11 XXXXXXXX
+  const WHATSAPP_TEXT = encodeURIComponent("Hola, me gustaría coordinar una consulta sobre compliance para mi empresa.");
+  const EMAIL_ADDRESS = "tbotte@nexoragroup.ar"; // reemplazar por el email real
+
+  const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`;
+  const mailUrl = `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent("Consulta sobre compliance")}`;
+
+  ["wa-nav","wa-hero","wa-cta","wa-footer","wa-float"].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.href = waUrl;
+  });
+  ["mail-cta","mail-footer"].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el){ el.href = mailUrl; el.textContent = el.id === "mail-footer" ? EMAIL_ADDRESS : el.textContent; }
+  });
+
+  // Menú mobile
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Close other open details in the same accordion group when one opens (FAQ only)
+  document.querySelectorAll('.faq-list .faq-item').forEach(item=>{
+    item.addEventListener('toggle', () => {
+      if(item.open){
+        document.querySelectorAll('.faq-list .faq-item').forEach(other=>{
+          if(other !== item) other.open = false;
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
