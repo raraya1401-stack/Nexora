@@ -7,7 +7,7 @@
 
 <!-- SEO -->
 <meta name="description" content="Diseñamos, fortalecemos y acompañamos programas de prevención de lavado de activos y cumplimiento regulatorio para fintechs, entidades financieras y activos virtuales en Argentina, LATAM y EE. UU. Consulta inicial sin cargo.">
-<link rel="canonical" href="https://TODO-reemplazar-con-dominio-real.com.ar/">
+<link rel="canonical" href="https://nexoragroup.ar/">
 
 <!-- Open Graph (previews en WhatsApp / LinkedIn / Facebook) -->
 <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
 <meta property="og:title" content="Nexora — The Compliance Group | Asesoría regulatoria y de cumplimiento">
 <meta property="og:description" content="Compliance armado por quienes lo operaron. Programas de PLAFT y cumplimiento regulatorio a medida para fintechs, entidades financieras y activos virtuales.">
 <meta property="og:image" content="https://TODO-reemplazar-con-URL-de-imagen-1200x630.jpg">
-<meta property="og:url" content="https://TODO-reemplazar-con-dominio-real.com.ar/">
+<meta property="og:url" content="https://nexoragroup.ar/">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -124,9 +124,8 @@
     border-bottom:1px solid var(--line);
   }
   .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1120px;margin:0 auto;}
-  .brand{display:flex;flex-direction:column;line-height:1;}
-  .brand-name{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--ink);letter-spacing:.01em;}
-  .brand-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-dark);margin-top:3px;}
+  .brand{display:flex;align-items:center;}
+  .brand img{height:38px;width:auto;display:block;}
   nav.links{display:flex;gap:32px;align-items:center;}
   nav.links a{font-size:14px;font-weight:500;text-decoration:none;color:var(--ink-soft);}
   nav.links a:hover{color:var(--brass-dark);}
@@ -140,7 +139,7 @@
   .chip{
     font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
     padding:7px 13px;border:1px solid var(--line);border-radius:20px;
-    color:var(--ink-soft);background:#fff;
+    color:var(--ink-soft);background:var(--card);
   }
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;}
   .hero-sub{font-size:18px;max-width:600px;margin-bottom:4px;}
@@ -159,13 +158,13 @@
 
   /* SECTION generic */
   section{padding:88px 0;}
-  .section-alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .section-alt{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .section-head{max-width:640px;margin-bottom:52px;}
   .section-head p{margin-top:14px;font-size:16.5px;}
 
   /* Explainer cards with details/summary */
   .explain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .explain-card{background:#fff;border:1px solid var(--line);padding:26px 24px;border-radius:var(--radius);}
+  .explain-card{background:var(--card);border:1px solid var(--line);padding:26px 24px;border-radius:var(--radius);}
   .explain-card h3{margin-bottom:10px;}
   .explain-card>p{font-size:14.5px;margin-bottom:14px;}
   details{border-top:1px solid var(--line);padding-top:12px;}
@@ -242,8 +241,11 @@
     cursor:pointer;list-style:none;padding:22px 4px;
     display:flex;justify-content:space-between;align-items:center;
     font-family:var(--serif);font-size:18px;color:var(--ink);font-weight:500;
+    text-transform:none;
   }
   .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::before{content:none;}
+  .faq-item summary::marker{content:"";}
   .faq-item summary::after{content:"+";font-family:var(--sans);font-size:22px;color:var(--brass);flex-shrink:0;margin-left:16px;}
   .faq-item[open] summary::after{content:"–";}
   .faq-item .a{padding:0 4px 24px;font-size:15px;max-width:640px;}
@@ -316,8 +318,7 @@
 <header class="nav">
   <div class="nav-inner">
     <div class="brand">
-      <span class="brand-name">Nexora</span>
-      <span class="brand-tag">The Compliance Group</span>
+      <a href="/"><img src="nexora-logo.png" alt="Nexora — The Compliance Group" width="343" height="109"></a>
     </div>
     <nav class="links" id="nav-links">
       <a href="#servicios">Servicios</a>
