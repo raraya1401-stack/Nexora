@@ -224,15 +224,10 @@
   }
   .team-card .t-bio{font-size:12.5px;color:var(--muted);line-height:1.55;}
 
-  /* Why us */
-  .why-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;}
-  .why-list{list-style:none;}
-  .why-list li{display:flex;gap:14px;padding:16px 0;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft);}
-  .why-list li:last-child{border-bottom:1px solid var(--line);}
-  .why-list li::before{content:"✓";font-family:var(--mono);color:var(--teal);font-weight:700;flex-shrink:0;}
+  /* Nota destacada */
   .disclaimer{
-    margin-top:24px;background:var(--teal-soft);border-left:3px solid var(--teal);
-    padding:16px 18px;font-size:13.5px;color:var(--ink-soft);border-radius:var(--radius);
+    max-width:760px;margin:8px auto 0;background:var(--teal-soft);border-left:3px solid var(--teal);
+    padding:24px 28px;font-size:15px;line-height:1.6;color:var(--ink-soft);border-radius:var(--radius);
   }
 
   /* FAQ */
@@ -288,7 +283,6 @@
     .audience-grid{grid-template-columns:1fr 1fr;}
     .process{grid-template-columns:1fr 1fr;row-gap:36px;}
     .process::before{display:none;}
-    .why-grid{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr 1fr;}
     nav.links{
       display:none;position:absolute;top:100%;left:0;right:0;
@@ -308,6 +302,7 @@
     .explain-grid,.services-grid,.audience-grid,.process,.footer-grid{grid-template-columns:1fr;}
     .stats-grid{grid-template-columns:1fr;gap:22px;}
     .team-grid{grid-template-columns:1fr;}
+    .disclaimer{padding:20px 20px;font-size:14px;}
     .cta-band{padding:44px 26px;flex-direction:column;align-items:flex-start;}
     .wa-float span{display:none;}
     .wa-float{padding:14px;border-radius:50%;}
@@ -622,20 +617,9 @@
         </div>
       </div>
 
-      <div class="why-grid">
-        <div>
-          <div class="disclaimer">
-            Trabajamos junto al Oficial de Cumplimiento que tu empresa designe. No reemplazamos ese
-            rol: la normativa argentina exige que sea interno. Lo que hacemos es fortalecerlo.
-          </div>
-        </div>
-        <ul class="why-list">
-          <li>Experiencia liderando compliance dentro de una institución financiera con licencia en Estados Unidos, incluyendo programas multiestatales.</li>
-          <li>Matrículas de abogacía y certificaciones internacionales CAMS e IFCA en todo el equipo.</li>
-          <li>Docencia universitaria en UBA, Derecho Civil — una mirada que combina norma, riesgo y responsabilidad.</li>
-          <li>Trabajo articulado con estudios jurídicos y consultoras aliadas para dar una respuesta integral cuando el caso lo requiere.</li>
-          <li>Foco en explicar cada decisión regulatoria en términos que el negocio entiende, no solo el área legal.</li>
-        </ul>
+      <div class="disclaimer">
+        Trabajamos junto al Oficial de Cumplimiento que tu empresa designe. No reemplazamos ese
+        rol: la normativa argentina exige que sea interno. Lo que hacemos es fortalecerlo.
       </div>
     </div>
   </section>
