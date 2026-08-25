@@ -210,17 +210,19 @@
   .process-step h3{margin-bottom:8px;font-size:17px;}
   .process-step p{font-size:13.5px;}
 
-  /* Founder tag */
-  .founder-tag{display:flex;align-items:center;gap:14px;margin:20px 0 22px;}
-  .founder-photo{
-    width:64px;height:64px;border-radius:50%;object-fit:cover;
-    border:2px solid var(--brass);flex-shrink:0;
+  /* Team grid */
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin:32px 0 44px;}
+  .team-card{background:var(--card);border:1px solid var(--line);padding:22px 18px;border-radius:var(--radius);}
+  .team-card img{
+    width:76px;height:76px;border-radius:50%;object-fit:cover;
+    border:2px solid var(--brass);margin-bottom:14px;display:block;
   }
-  .founder-name{font-family:var(--serif);font-weight:600;font-size:15.5px;color:var(--ink);line-height:1.2;}
-  .founder-role{
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;
-    color:var(--muted);margin-top:3px;
+  .team-card .t-name{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--ink);line-height:1.25;}
+  .team-card .t-role{
+    font-family:var(--mono);font-size:10px;letter-spacing:.03em;text-transform:uppercase;
+    color:var(--brass-dark);margin-top:4px;margin-bottom:12px;line-height:1.45;
   }
+  .team-card .t-bio{font-size:12.5px;color:var(--muted);line-height:1.55;}
 
   /* Why us */
   .why-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;}
@@ -300,10 +302,12 @@
     .nav-inner{position:relative;}
     .stats-grid{grid-template-columns:1fr 1fr;}
     .brand img{height:32px;}
+    .team-grid{grid-template-columns:1fr 1fr;}
   }
   @media(max-width:600px){
     .explain-grid,.services-grid,.audience-grid,.process,.footer-grid{grid-template-columns:1fr;}
     .stats-grid{grid-template-columns:1fr;gap:22px;}
+    .team-grid{grid-template-columns:1fr;}
     .cta-band{padding:44px 26px;flex-direction:column;align-items:flex-start;}
     .wa-float span{display:none;}
     .wa-float{padding:14px;border-radius:50%;}
@@ -564,34 +568,76 @@
 
   <!-- POR QUE NEXORA -->
   <section class="section-alt" id="nosotros">
-    <div class="wrap why-grid">
-      <div>
-        <div class="eyebrow">POR QUÉ NEXORA</div>
-        <div class="founder-tag">
-          <img src="tamara-botte.jpg" alt="Tamara Botte, fundadora de Nexora" class="founder-photo">
-          <div>
-            <div class="founder-name">Tamara Botte</div>
-            <div class="founder-role">Fundadora — Abogada · CAMS · IFCA</div>
-          </div>
-        </div>
+    <div class="wrap">
+      <div class="eyebrow">POR QUÉ NEXORA</div>
+      <div class="section-head">
         <h2>Compliance armado por quienes lo operaron</h2>
-        <p style="margin-top:16px;font-size:15.5px;">
-          Nexora está liderada por Tamara Botte, abogada con trayectoria en compliance financiero,
-          docencia universitaria en UBA y experiencia operando —no solo asesorando— dentro de
-          instituciones reguladas.
+        <p>
+          Nexora no es una sola persona: es un equipo de abogados especializados en compliance
+          AML/CFT, formados operando —no solo asesorando— dentro de instituciones financieras
+          reguladas en Estados Unidos. Ese mismo criterio es el que aplicamos en cada programa
+          que diseñamos.
         </p>
-        <div class="disclaimer">
-          Trabajamos junto al Oficial de Cumplimiento que tu empresa designe. No reemplazamos ese
-          rol: la normativa argentina exige que sea interno. Lo que hacemos es fortalecerlo.
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="tamara-botte.jpg" alt="Tamara Botte, fundadora de Nexora">
+          <div class="t-name">Tamara Botte</div>
+          <div class="t-role">Fundadora — Abogada · CAMS · IFCA</div>
+          <p class="t-bio">
+            Trayectoria en compliance financiero y docencia universitaria en UBA, con experiencia
+            operando dentro de instituciones reguladas, incluyendo programas multiestatales en
+            Estados Unidos.
+          </p>
+        </div>
+        <div class="team-card">
+          <img src="francisco-scalerandi.jpg" alt="Francisco Scalerandi">
+          <div class="t-name">Francisco Scalerandi</div>
+          <div class="t-role">Compliance AML/CFT — Abogado · CAMS · IFCA</div>
+          <p class="t-bio">
+            LL.M. en Comercio Internacional, especializado en compliance AML/CFT y KYB. Responsable
+            de segunda línea de compliance en una empresa MSB regulada en EE. UU. (FinCEN),
+            liderando EDD, KYB y onboarding de agentes de alto riesgo.
+          </p>
+        </div>
+        <div class="team-card">
+          <img src="angeles-vazquez.jpg" alt="Angeles María Vazquez">
+          <div class="t-name">Angeles María Vazquez</div>
+          <div class="t-role">Legal &amp; Compliance AML/CFT — Abogada · IFCA · PMI</div>
+          <p class="t-bio">
+            Especializada en compliance AML/CFT y KYB. Analista senior de legal y compliance en una
+            empresa MSB regulada en EE. UU. (FinCEN), supervisando EDD y evaluaciones de riesgo de
+            corresponsales pagadores.
+          </p>
+        </div>
+        <div class="team-card">
+          <img src="paula-botta.jpg" alt="Paula Botta Bernaus">
+          <div class="t-name">Paula Botta Bernaus</div>
+          <div class="t-role">Transaction Monitoring Lead — Abogada · IFCA</div>
+          <p class="t-bio">
+            Especializada en compliance AML/CFT. Transaction monitoring lead en una empresa MSB
+            regulada en EE. UU. (FinCEN), liderando el monitoreo de transacciones y la gestión de
+            alertas de operaciones sospechosas.
+          </p>
         </div>
       </div>
-      <ul class="why-list">
-        <li>Experiencia liderando compliance dentro de una institución financiera con licencia en Estados Unidos, incluyendo programas multiestatales.</li>
-        <li>Matrícula CPACF (abogada) y certificaciones internacionales CAMS e IFCA.</li>
-        <li>Docente universitaria en UBA, Derecho Civil — una mirada que combina norma, riesgo y responsabilidad.</li>
-        <li>Trabajo articulado con estudios jurídicos y consultoras aliadas para dar una respuesta integral cuando el caso lo requiere.</li>
-        <li>Foco en explicar cada decisión regulatoria en términos que el negocio entiende, no solo el área legal.</li>
-      </ul>
+
+      <div class="why-grid">
+        <div>
+          <div class="disclaimer">
+            Trabajamos junto al Oficial de Cumplimiento que tu empresa designe. No reemplazamos ese
+            rol: la normativa argentina exige que sea interno. Lo que hacemos es fortalecerlo.
+          </div>
+        </div>
+        <ul class="why-list">
+          <li>Experiencia liderando compliance dentro de una institución financiera con licencia en Estados Unidos, incluyendo programas multiestatales.</li>
+          <li>Matrículas de abogacía y certificaciones internacionales CAMS e IFCA en todo el equipo.</li>
+          <li>Docencia universitaria en UBA, Derecho Civil — una mirada que combina norma, riesgo y responsabilidad.</li>
+          <li>Trabajo articulado con estudios jurídicos y consultoras aliadas para dar una respuesta integral cuando el caso lo requiere.</li>
+          <li>Foco en explicar cada decisión regulatoria en términos que el negocio entiende, no solo el área legal.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
