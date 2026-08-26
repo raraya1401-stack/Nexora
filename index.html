@@ -131,6 +131,14 @@
   nav.links a:hover{color:var(--brass-dark);}
   .nav-cta{display:flex;align-items:center;gap:18px;}
   .menu-toggle{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink);}
+  .lang-toggle{
+    display:flex;align-items:center;gap:7px;
+    font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.04em;
+    padding:8px 14px;border:1px solid var(--ink);border-radius:20px;background:transparent;
+    color:var(--ink);cursor:pointer;transition:background-color .15s ease, color .15s ease;
+  }
+  .lang-toggle svg{width:15px;height:15px;flex-shrink:0;}
+  .lang-toggle:hover{background:var(--ink);color:#fff;}
 
   /* HERO */
   .hero{padding:76px 0 90px;position:relative;overflow:hidden;}
@@ -309,6 +317,7 @@
     .brand img{height:30px;}
     #wa-nav{display:none;}
     .nav-cta{gap:10px;}
+    .lang-toggle{padding:7px 11px;font-size:11px;}
   }
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
@@ -330,6 +339,10 @@
       <a href="#preguntas">Preguntas frecuentes</a>
     </nav>
     <div class="nav-cta">
+      <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch to English">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+        <span id="lang-toggle-text">English</span>
+      </button>
       <a class="btn btn-primary" id="wa-nav" href="#" target="_blank" rel="noopener">Hablemos por WhatsApp</a>
       <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">☰</button>
     </div>
@@ -679,31 +692,31 @@
       <div>
         <h4>Nexora</h4>
         <p style="margin-bottom:4px;">The Compliance Group</p>
-        <p>Asesoría regulatoria y de cumplimiento para empresas reguladas en Argentina, LATAM y Estados Unidos.</p>
+        <p class="footer-desc">Asesoría regulatoria y de cumplimiento para empresas reguladas en Argentina, LATAM y Estados Unidos.</p>
       </div>
-      <div>
+      <div class="footer-nav">
         <h4>Navegación</h4>
         <a href="#servicios">Servicios</a>
         <a href="#para-quien">Para quién</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#preguntas">Preguntas frecuentes</a>
       </div>
-      <div>
+      <div class="footer-contact">
         <h4>Contacto</h4>
         <a id="mail-footer" href="#">info@nexoracompliance.com.ar</a>
         <a id="wa-footer" href="#" target="_blank" rel="noopener">WhatsApp</a>
         <p>Buenos Aires, Argentina</p>
       </div>
-      <div>
+      <div class="footer-reg">
         <h4>Registro profesional</h4>
-        <p>Tamara Botte — Abogada</p>
+        <p class="reg-role">Tamara Botte — Abogada</p>
         <p>CPACF T° 115 F° 931</p>
         <p>CAMS · IFCA</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Nexora — The Compliance Group. Todos los derechos reservados.</span>
-      <span>Consulta inicial sin cargo · Respuesta en 24 hs hábiles</span>
+      <span class="copy">© 2026 Nexora — The Compliance Group. Todos los derechos reservados.</span>
+      <span class="hours">Consulta inicial sin cargo · Respuesta en 24 hs hábiles</span>
     </div>
   </div>
 </footer>
@@ -757,7 +770,229 @@
       }
     });
   });
+
+  // ===================== IDIOMA ES / EN =====================
+  (function(){
+    let lang = 'es';
+
+    // Helper: capturar el texto/HTML original (ES) de un grupo de elementos
+    // que comparten un selector estructural, y devolver funciones para
+    // aplicar el arreglo EN correspondiente en el mismo orden del DOM.
+    function bindSimple(selector, enValues, prop){
+      prop = prop || 'textContent';
+      const els = document.querySelectorAll(selector);
+      const es = Array.from(els).map(el => el[prop]);
+      return function(target){
+        els.forEach((el, i) => {
+          if(enValues[i] === undefined) return; // sin traducción -> no tocar
+          el[prop] = target === 'en' ? enValues[i] : es[i];
+        });
+      };
+    }
+
+    // Helper para grupos de "cards" repetidas (explain, service, audience, process, team, faq)
+    function bindCards(cardSelector, fieldMap, enList){
+      const cards = document.querySelectorAll(cardSelector);
+      const esList = Array.from(cards).map(card => {
+        const rec = {};
+        Object.keys(fieldMap).forEach(key => {
+          const cfg = fieldMap[key];
+          const el = cfg.sel ? card.querySelector(cfg.sel) : card;
+          if(!el) return;
+          rec[key] = el[cfg.prop || 'textContent'];
+        });
+        return rec;
+      });
+      return function(target){
+        cards.forEach((card, i) => {
+          Object.keys(fieldMap).forEach(key => {
+            const cfg = fieldMap[key];
+            const el = cfg.sel ? card.querySelector(cfg.sel) : card;
+            if(!el) return;
+            const enVal = enList[i] && enList[i][key];
+            if(enVal === undefined) return;
+            el[cfg.prop || 'textContent'] = target === 'en' ? enVal : esList[i][key];
+          });
+        });
+      };
+    }
+
+    // Helper para listas (ej: <li> dentro de cada service-card)
+    function bindListGroups(cardSelector, itemSelector, enLists){
+      const cards = document.querySelectorAll(cardSelector);
+      const esLists = Array.from(cards).map(card => Array.from(card.querySelectorAll(itemSelector)).map(li => li.textContent));
+      return function(target){
+        cards.forEach((card, i) => {
+          const items = card.querySelectorAll(itemSelector);
+          items.forEach((li, j) => {
+            const enVal = enLists[i] && enLists[i][j];
+            if(enVal === undefined) return;
+            li.textContent = target === 'en' ? enVal : esLists[i][j];
+          });
+        });
+      };
+    }
+
+    const setters = [];
+    function reg(setter){ setters.push(setter); }
+
+    // --- HEADER ---
+    reg(bindSimple('nav.links a', ['Services','Who we work with','About us','FAQ']));
+    reg(bindSimple('.footer-nav a', ['Services','Who we work with','About us','FAQ']));
+    reg(bindSimple('#wa-nav', ['Chat on WhatsApp']));
+    reg(bindSimple('#menu-toggle', ['Open menu'], 'ariaLabel'));
+
+    // --- HERO ---
+    reg(bindSimple('.hero .eyebrow', ['NEXORA — REGULATORY & COMPLIANCE ADVISORY']));
+    reg(bindSimple('h1', ['Compliance shouldn\u2019t be what holds back <span class="accent">your growth</span>.'], 'innerHTML'));
+    reg(bindSimple('.hero-sub', [
+      'We design and support anti-money laundering and regulatory compliance programs for fintechs, financial institutions, and virtual asset companies — with the judgment of people who\u2019ve operated inside a regulated institution.'
+    ]));
+    reg(bindSimple('.hero .chip', [
+      'Fintechs & PSPs','Financial institutions','Exchanges & virtual assets','Mutuals & cooperatives','U.S. expansion'
+    ]));
+    reg(bindSimple('#wa-hero', ['Book a free consultation']));
+    reg(bindSimple('.hero-ctas .btn-ghost', ['See our services']));
+    reg(bindSimple('.hero-trust', ['No cost · Response within 24 business hours']));
+
+    // --- STATS ---
+    reg(bindSimple('.stat-num', ['+7,000','+10 years','50 states','5 countries']));
+    reg(bindSimple('.stat-label', [
+      'Agencies supported through KYB onboarding and EDD monitoring across their full lifecycle',
+      'Of experience in financial compliance, inside and outside regulated institutions',
+      'Across the U.S. with direct regulatory experience, including multistate licensing',
+      'In LATAM with active cases of regional expansion and market entry'
+    ]));
+
+    // --- POR QUE IMPORTA ---
+    reg(bindSimple('#por-que-importa .eyebrow', ['WHY IT MATTERS']));
+    reg(bindSimple('#por-que-importa h2', ['Compliance, explained plainly']));
+    reg(bindSimple('#por-que-importa .section-head p', ['Tap \u201Csee technical detail\u201D on each card if you already know the topic and want regulatory specifics.']));
+    reg(bindCards('.explain-card', {
+      h3:{sel:'h3'}, p:{sel:':scope > p'}, summary:{sel:'summary'}, tech:{sel:'.tech'}
+    }, [
+      {
+        h3:'What is a compliance program?',
+        p:'It\u2019s the set of internal rules and controls that keep your company from being used, unknowingly, to launder money or finance illicit activity.',
+        summary:'See technical detail',
+        tech:'Includes an AML/CFT prevention policy, risk assessment, KYC/EDD procedures, a risk matrix, staff training, and suspicious activity reporting under UIF (Argentina\u2019s Financial Intelligence Unit) regulations.'
+      },
+      {
+        h3:'Who has to comply?',
+        p:'If your company moves or manages third-party funds — fintech, wallet, exchange, cooperative, financial institution — you\u2019re likely an Obligated Subject under the UIF.',
+        summary:'See technical detail',
+        tech:'UIF resolutions apply depending on your activity (fintech, PSP, virtual assets, mutuals and cooperatives), along with BCRA communications and, in some cases, CNV regulations.'
+      },
+      {
+        h3:'What happens if I don\u2019t comply?',
+        p:'You can face financial penalties, operational roadblocks, and stalled licenses — and if you\u2019re looking to grow or raise investment, a loss of trust from banks and investors.',
+        summary:'See technical detail',
+        tech:'UIF fines, findings in regulatory exams, and de-risking exposure from correspondent banks.'
+      }
+    ]));
+
+    // --- SERVICIOS ---
+    reg(bindSimple('#servicios .eyebrow', ['SERVICES']));
+    reg(bindSimple('#servicios h2', ['A compliance program built for you, not a template']));
+    reg(bindSimple('#servicios .section-head p', ['Every service adapts to your company\u2019s actual size, risk, and stage.']));
+    reg(bindCards('.service-card', { h3:{sel:'h3'}, p:{sel:':scope > p'} }, [
+      { h3:'Compliance Program Design', p:'We build the policies and controls your company needs to operate safely and meet current regulations.' },
+      { h3:'Licensing & Regulatory Affairs', p:'We guide you through registration and licensing with the agencies that apply to your activity.' },
+      { h3:'Risk & Gap Assessment', p:'We review what you already have in place and tell you clearly what\u2019s missing and what\u2019s putting you at risk today.' },
+      { h3:'Assisted Compliance Office', p:'We add capacity and judgment to your designated Compliance Officer, without replacing them — as Argentine regulation requires.' },
+      { h3:'Team Training', p:'We train your team so anti-money laundering prevention doesn\u2019t rest on a single person.' },
+      { h3:'Regional & U.S. Expansion', p:'If your next step is the U.S. or another country in the region, we help you understand what that market requires before you enter.' }
+    ]));
+    reg(bindListGroups('.service-card', 'li', [
+      ['AML/CFT prevention policy','Risk matrix','KYC/EDD procedures manual'],
+      ['UIF registration','BCRA / PSAV / CNV licensing','U.S. MSB licenses'],
+      ['Gap analysis','Risk assessment','Prioritized action plan'],
+      ['Monthly support and a second technical opinion','Report review','Exam preparation'],
+      ['Custom workshops by department','Real-world case studies','Internal certification'],
+      ['Market entry advisory','Multistate licensing','Correspondent bank readiness']
+    ]));
+
+    // --- A QUIEN ACOMPAÑAMOS ---
+    reg(bindSimple('#para-quien .eyebrow', ['WHO WE WORK WITH']));
+    reg(bindSimple('#para-quien h2', ['Is this for your business?']));
+    reg(bindSimple('#para-quien .section-head p', ['If you see your company in any of these, probably yes.']));
+    reg(bindCards('.audience-card', { h3:{sel:'h3'}, p:{sel:'p'} }, [
+      { h3:'Fintechs & PSPs', p:'You\u2019re launching a payments or wallet product and need a compliance program before you scale.' },
+      { h3:'Financial institutions', p:'You already have compliance in place but need to strengthen it for an upcoming exam or audit.' },
+      { h3:'Exchanges & virtual assets', p:'You operate with crypto assets, and regulation requires a specific AML/CFT program as a PSAV.' },
+      { h3:'Mutuals & cooperatives', p:'You\u2019re a nonprofit-sector entity that needs to strengthen its compliance function before INAES and the UIF.' },
+      { h3:'Expanding companies', p:'You\u2019re a company in the region planning to operate in the U.S. and need to understand the rules before entering.' }
+    ]));
+
+    // --- COMO TRABAJAMOS ---
+    reg(bindSimple('#proceso .eyebrow', ['HOW WE WORK']));
+    reg(bindSimple('#proceso h2', ['Four steps, no surprises along the way']));
+    reg(bindCards('.process-step', { h3:{sel:'h3'}, p:{sel:'p'} }, [
+      { h3:'Diagnosis', p:'We assess your operation and your actual risk profile — not the one in a generic manual.' },
+      { h3:'Design', p:'We build the program, policies, and controls tailored to your business.' },
+      { h3:'Implementation', p:'We roll it out with your team — we don\u2019t leave it as a document nobody reads.' },
+      { h3:'Ongoing support', p:'We stay by your side with periodic reviews and through every regulatory exam.' }
+    ]));
+
+    // --- POR QUE NEXORA ---
+    reg(bindSimple('#nosotros .eyebrow', ['WHY NEXORA']));
+    reg(bindSimple('#nosotros h2', ['Compliance built by people who\u2019ve operated it']));
+    reg(bindSimple('#nosotros .section-head p', [
+      'Nexora isn\u2019t one person: it\u2019s a team of lawyers specialized in AML/CFT compliance, trained by operating — not just advising — inside regulated financial institutions in the United States. That\u2019s the same judgment we bring to every program we design.'
+    ]));
+    reg(bindCards('.team-card', { role:{sel:'.t-role'}, bio:{sel:'.t-bio'} }, [
+      { role:'Founder — Attorney · CAMS · IFCA', bio:'Background in financial compliance and university teaching at UBA, with experience operating inside regulated institutions, including multistate programs in the United States.' },
+      { role:'Partner — Attorney & Notary · CAMS · IFCA', bio:'Attorney and notary (LL.M. in International Trade). Served as KYB lead and second-line compliance officer in the U.S. payments industry. CAMS and IFCA-UCEMA certified.' },
+      { role:'Partner — Attorney · IFCA · PMI', bio:'Attorney. Served as senior legal and compliance analyst in the U.S. payments industry, focused on correspondent banking relationships. IFCA-UCEMA certified, with training in Project Management (PMI).' },
+      { role:'Partner — Attorney · IFCA', bio:'Attorney. Served as transaction monitoring lead at a regulated MSB in the United States. IFCA-UCEMA certified.' }
+    ]));
+    reg(bindSimple('.disclaimer', [
+      'We work alongside the Compliance Officer your company appoints. We don\u2019t replace that role — Argentine regulation requires it to be internal. What we do is strengthen it.'
+    ]));
+
+    // --- FAQ ---
+    reg(bindSimple('#preguntas .eyebrow', ['FAQ']));
+    reg(bindSimple('#preguntas h2', ['Before you reach out']));
+    reg(bindCards('.faq-item', { q:{sel:'summary'}, a:{sel:'.a'} }, [
+      { q:'Do I need this if I\u2019m a small company?', a:'Yes, if you handle third-party funds. Company size doesn\u2019t exempt you from the regulatory obligation — it does change the scope and cost of the program, which we always adjust to your actual scale.' },
+      { q:'How long does it take to build a compliance program?', a:'It depends on your starting point. An initial diagnosis takes 1 to 2 weeks; a complete program, 4 to 10 weeks. We give you a concrete timeline after the initial consultation.' },
+      { q:'Do you work with companies outside Argentina?', a:'Yes. Besides Argentina, we handle cases of regional expansion and entry into the U.S. market, including multistate licensing.' },
+      { q:'Can you be my Compliance Officer?', a:'No — and you should be wary of anyone who offers to. Argentine regulation requires the Compliance Officer to be an internal executive at your company. What we do is support that person with technical judgment, review, and guidance through exams.' },
+      { q:'How does the engagement and fee structure work?', a:'We work on a fixed-price project basis or a monthly retainer, depending on the service. We define it clearly before starting — no surprises on the invoice.' }
+    ]));
+
+    // --- CTA FINAL ---
+    reg(bindSimple('.cta-band h2', ['Let\u2019s start with a conversation, not a contract.']));
+    reg(bindSimple('.cta-band p', ['A free initial consultation to understand your situation and tell you, honestly, whether we can help.']));
+    reg(bindSimple('#wa-cta', ['Message us on WhatsApp']));
+    reg(bindSimple('#mail-cta', ['Send an email']));
+
+    // --- FOOTER ---
+    reg(bindSimple('.footer-grid p.footer-desc', ['Regulatory and compliance advisory for regulated companies in Argentina, LATAM, and the United States.']));
+    reg(bindSimple('.footer-nav h4', ['Navigation']));
+    reg(bindSimple('.footer-contact h4', ['Contact']));
+    reg(bindSimple('.footer-reg h4', ['Professional registration']));
+    reg(bindSimple('.footer-reg p.reg-role', ['Tamara Botte — Attorney']));
+    reg(bindSimple('.footer-bottom span.copy', ['\u00A9 2026 Nexora — The Compliance Group. All rights reserved.']));
+    reg(bindSimple('.footer-bottom span.hours', ['Free initial consultation · Response within 24 business hours']));
+
+    // Titulo de pestaña
+    const titleES = document.title;
+    const titleEN = 'Nexora — The Compliance Group | Regulatory & Compliance Advisory';
+
+    const btn = document.getElementById('lang-toggle');
+    const btnText = document.getElementById('lang-toggle-text');
+    btn.addEventListener('click', () => {
+      lang = lang === 'es' ? 'en' : 'es';
+      setters.forEach(fn => fn(lang));
+      document.documentElement.lang = lang === 'en' ? 'en' : 'es-AR';
+      document.title = lang === 'en' ? titleEN : titleES;
+      btnText.textContent = lang === 'en' ? 'Español' : 'English';
+      btn.setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
+    });
+  })();
 </script>
 
 </body>
 </html>
+
